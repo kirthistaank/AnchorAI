@@ -1,0 +1,16 @@
+# Phase 1 MVP - Minimal Requirements
+# This has only what's needed for Phase 1 to run
+# Phase 1.5 can add additional auth dependencies later
+
+fastapi==0.104.1
+uvicorn==0.24.0
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+pydantic==2.5.0
+pydantic-settings==2.1.0
+neo4j==5.14.0
+litellm==1.26.3
+anthropic==0.29.0
+python-dotenv==1.0.0
+httpx==0.25.2
+pytest==7.4.3
