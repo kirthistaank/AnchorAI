@@ -4,7 +4,7 @@
 
 Personal wellness AI agent for journaling, mood tracking, CBT-based support, habit tracking, goals, exercises, and voice interaction.
 
-**Current Status:** Phase 4 ✅ (Voice STT/TTS, collapsible sidebar, theme picker, full feature set)
+**Features :** Voice STT/TTS, collapsible sidebar, theme picker, full feature set
 
 ## Running the App
 
