@@ -1,4 +1,6 @@
-# 🧘 AnchorAI
+<img src="frontend/public/logo.png" alt="AnchorAI" width="80"/>
+
+# AnchorAI
 
 Personal wellness AI agent for journaling, mood tracking, CBT-based support, habit tracking, goals, exercises, and voice interaction.
 

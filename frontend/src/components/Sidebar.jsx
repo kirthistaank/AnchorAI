@@ -49,20 +49,26 @@ export default function Sidebar() {
       }`}
     >
       {/* Logo */}
-      <div className={`px-3 py-4 border-b border-slate-700/50 ${collapsed ? 'flex justify-center' : ''}`}>
+      <div className={`px-3 py-3 border-b border-slate-700/50 flex flex-col ${collapsed ? 'items-center' : 'items-center'}`}>
         {collapsed ? (
           <span className="text-2xl">🧘</span>
         ) : (
-          <img
-            src="/logo.png"
-            alt="AnchorAI"
-            className="w-full h-16 object-contain object-left"
-          />
+          <>
+            <img
+              src="/logo.png"
+              alt="AnchorAI"
+              className="w-24 h-24 object-contain"
+              style={{ filter: 'invert(1)', mixBlendMode: 'screen' }}
+            />
+            <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-accent-400 to-accent-200 bg-clip-text text-transparent whitespace-nowrap">
+              AnchorAI
+            </span>
+          </>
         )}
       </div>
 
       {/* Nav links */}
-      <nav className="flex-1 py-3 space-y-1 px-2 overflow-y-auto">
+      <nav className="flex-1 pt-6 pb-3 space-y-1 px-2 overflow-y-auto">
         {NAV_ITEMS.map(({ to, label, icon }) => (
           <Link
             key={to}

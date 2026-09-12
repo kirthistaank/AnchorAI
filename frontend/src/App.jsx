@@ -55,6 +55,17 @@ function Chat() {
       .then(r => r.json()).then(setVoiceStatus).catch(() => {})
   }, [])
 
+  useEffect(() => {
+    const endBtn = document.getElementById('end-session-btn')
+    const newBtn = document.getElementById('new-chat-btn')
+    if (endBtn) endBtn.onclick = endSession
+    if (newBtn) newBtn.onclick = startNewSession
+    return () => {
+      if (endBtn) endBtn.onclick = null
+      if (newBtn) newBtn.onclick = null
+    }
+  }, [sessionId, loading])
+
   const initializeSession = async () => {
     try {
       const savedId = sessionStorage.getItem('anchor_session_id')
@@ -361,28 +372,6 @@ function Chat() {
       {/* Chat column */}
       <div className="flex-1 min-w-0 h-full flex flex-col">
       <div className="flex-1 min-h-0 flex flex-col bg-gradient-to-b from-slate-800/80 to-slate-700/80 backdrop-blur-xl rounded-3xl border border-accent-500/20 shadow-2xl overflow-hidden">
-        {/* Chat header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-600/40 bg-slate-800/80 flex-shrink-0 gap-4">
-          <span className="text-xs font-medium text-slate-300 tracking-wide">Current Session</span>
-          <div className="flex gap-3 flex-shrink-0">
-            <button
-              onClick={endSession}
-              disabled={loading || !sessionId}
-              className="inline-flex items-center gap-2 text-sm font-bold px-4 py-2 rounded-lg bg-rose-600 text-white hover:bg-rose-700 transition-all disabled:opacity-50 whitespace-nowrap shadow-md"
-              title="End this session and start closing ritual"
-            >
-              ✓ End Session
-            </button>
-            <button
-              onClick={startNewSession}
-              disabled={loading}
-              className="inline-flex items-center gap-2 text-sm font-bold px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all disabled:opacity-50 whitespace-nowrap shadow-md"
-              title="Start a new chat session"
-            >
-              + New Chat
-            </button>
-          </div>
-        </div>
         <div className="flex-1 overflow-y-auto p-6 space-y-5 scroll-smooth">
           {messages.map((msg, i) => (
             <div key={i} className={`group flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'} animate-slideIn`}>

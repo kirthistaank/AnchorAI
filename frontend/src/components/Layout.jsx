@@ -73,10 +73,23 @@ function Topbar() {
   return (
     <header className="h-16 border-b border-accent-500/20 flex flex-shrink-0 relative z-40">
       {/* Title section */}
-      <div className="flex-1 flex items-center px-6">
-        <p className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-accent-400 to-accent-200 bg-clip-text text-transparent whitespace-nowrap">
-          AnchorAI
-        </p>
+      <div className="flex-1 flex items-center justify-end gap-4 px-6">
+        <div className="flex gap-3">
+          <button
+            id="end-session-btn"
+            className="inline-flex items-center gap-2 text-sm font-bold px-4 py-2 rounded-lg bg-rose-600 text-white hover:bg-rose-700 transition-all disabled:opacity-50 whitespace-nowrap shadow-md"
+            title="End this session and start closing ritual"
+          >
+            ✓ End Session
+          </button>
+          <button
+            id="new-chat-btn"
+            className="inline-flex items-center gap-2 text-sm font-bold px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all disabled:opacity-50 whitespace-nowrap shadow-md"
+            title="Start a new chat session"
+          >
+            + New Chat
+          </button>
+        </div>
       </div>
       {/* Profile section — separate, no banner bleed */}
       <div className="flex-shrink-0 flex items-center px-4 bg-slate-900 border-l border-slate-700/50">
